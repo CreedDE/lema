@@ -1,0 +1,43 @@
+name: Bug Report
+description: Report a bug
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction
+    attributes:
+      label: Please provide a link to a minimal reproduction of the bug
+
+  - type: textarea
+    id: exception-or-error
+    attributes:
+      label: Please provide the exception or error you saw
+      render: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Please provide the environment you discovered this bug in
+      render: true
+      placeholder: |
+        App Version: 0.0.1
+        Angular: 12.1.2
+        Node: 14.17.3
+        Package Manager: yarn 1.22.5
+        OS: Windows 10 x64
+
+        Package                         Version
+        ---------------------------------------------------------
+        @angular/material               12.1.2
+        typescript                      4.3.5
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?
