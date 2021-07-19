@@ -65,6 +65,7 @@ module.exports = {
 					900: '#2b2156',
 				},
 				black: {
+					300: '#424242',
 					400: '#333333',
 					500: '#44464e',
 					600: '#292929',
@@ -86,7 +87,10 @@ module.exports = {
 		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			opacity: ['disabled'],
+			cursor: ['disabled'],
+		},
 	},
 	plugins: [require('@tailwindcss/forms')],
 };

@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 	{
-		path: 'auth',
+		path: '',
 		loadChildren: () => import('./modules/auth/auth.module').then((a) => a.AuthModule),
 	},
 ];
