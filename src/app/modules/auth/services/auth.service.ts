@@ -9,7 +9,8 @@ import { User } from '@shared/models/user.model';
 	providedIn: 'root',
 })
 export class FirebaseAuthService {
-	userState: unknown;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	userState: any;
 	constructor(
 		private afs: AngularFirestore,
 		private afAuth: AngularFireAuth,
@@ -33,6 +34,8 @@ export class FirebaseAuthService {
 			this.ngZone.run(() => {
 				//TODO: create a route that exist where you can navigate after the login
 				// void this.router.navigate(['dashboard']);
+				console.log(`=========Response=========`);
+				console.log(result);
 				window.alert('successfull logged in');
 			});
 			void this.SetUserData(result.user);
@@ -50,7 +53,6 @@ export class FirebaseAuthService {
 		return this.afAuth.currentUser
 			.then((u) => u?.sendEmailVerification())
 			.then(() => {
-				//TODO: create the email-verification route
 				void this.router.navigate(['email-verification']);
 			});
 	}
@@ -77,5 +79,12 @@ export class FirebaseAuthService {
 			emailVerified: user.emailVerified,
 		};
 		return userRef.set(userState, { merge: true });
+	}
+
+	SignOut(): Promise<void> {
+		return this.afAuth.signOut().then(() => {
+			localStorage.removeItem('user');
+			void this.router.navigate(['sign-in']);
+		});
 	}
 }

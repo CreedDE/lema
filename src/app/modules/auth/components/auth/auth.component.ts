@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { FirebaseAuthService } from './services/auth.service';
+import { FirebaseAuthService } from '../../services/auth.service';
 
 interface Credentials {
 	email: string;
@@ -47,7 +47,9 @@ export class AuthComponent implements OnInit {
 				.then(() => {
 					this.isSubmitting = false;
 				})
-				.catch(() => {
+				.catch((error) => {
+					console.log(`=========Error=========`);
+					console.log(error);
 					this.isSubmitting = false;
 				});
 		} else {
@@ -56,7 +58,7 @@ export class AuthComponent implements OnInit {
 				.then(() => {
 					this.isSubmitting = false;
 				})
-				.catch((error) => {
+				.catch(() => {
 					this.isSubmitting = false;
 				});
 		}
