@@ -1,0 +1,22 @@
+<div class="flex justify-center items-center min-h-screen">
+	<div class="absolute top-4 left-4 right-0">
+		<button mat-icon-button (click)="goHome()">
+			<mat-icon fontIcon="fa-arrow-left" fontSet="fal"></mat-icon>
+		</button>
+	</div>
+	<div class="justify-center justify-items-center">
+		<h2 class="text-purple-500 text-3xl font-bold text-center mb-4">Thank You for Signing Up</h2>
+		<div *ngIf="authService.userState as user" class="px-6 w-full text-center flex justify-center items-center">
+			<p>Confirmation mail has been sent to <strong>{{user.email}}</strong>.</p>
+		</div>
+
+		<div class="flex justify-center justify-items-center">
+			<button
+				class="py-2 px-6 my-6 bg-purple-500 text-white-900 font-semibold rounded-lg"
+				(click)="authService.SendVerificationMail()"
+			>
+				Resend Verification Email
+			</button>
+		</div>
+	</div>
+</div>
