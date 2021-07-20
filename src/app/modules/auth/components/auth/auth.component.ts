@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
 		});
 	}
 
-	ngOnInit() {
+	ngOnInit(): void {
 		this.route.url.subscribe((data) => {
 			this.authType = data[data.length - 1].path;
 			this.title = this.authType === 'login' ? 'Login to Lema' : 'Sign up';
@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit {
 		});
 	}
 
-	submitForm() {
+	submitForm(): void {
 		this.isSubmitting = true;
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const credentials: Credentials = this.authForm.value;
