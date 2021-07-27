@@ -1,6 +1,7 @@
 <div
+	*ngIf="isMobile"
 	class="
-		sidenav
+		sidenav-mobile
 		bg-white-900
 		dark:bg-black-900
 		flex
@@ -29,7 +30,7 @@
 </div>
 
 <div class="mobile-navigation absolute w-full min-h-screen top-0" *ngIf="mobileMenu">
-	<div class="bg-black-800">
+	<div class="bg-white-800 dark:bg-black-800">
 		<div class="w-full flex justify-end">
 			<button mat-icon-button (click)="toggleMobileMenu()">
 				<mat-icon fontIcon="fa-times" fontSet="fal"></mat-icon>
@@ -56,5 +57,92 @@
 				</a>
 			</div>
 		</nav>
+	</div>
+</div>
+
+<div
+	*ngIf="!isMobile"
+	class="
+		sidenav
+		flex flex-col
+		justify-between
+		items-center
+		w-64
+		min-h-screen
+		bg-white-900
+		dark:bg-black-600
+		border-r border-white-500
+		dark:border-black-500
+		py-4
+	"
+>
+	<div class="logo w-full flex justify-center pb-24">
+		<img src="../assets/Logo.svg" alt="" width="64" />
+	</div>
+
+	<nav class="flex-1 px-2 py-2 space-y-2 w-full">
+		<div>
+			<a
+				routerLink="/home"
+				class="
+					flex
+					items-center
+					p-2
+					text-black-900
+					transition-colors
+					rounded-md
+					dark:text-white-900
+					hover:bg-purple-100
+					dark:hover:bg-purple-500
+				"
+			>
+				<mat-icon fontIcon="fa-home" fontSet="fal"></mat-icon>
+				<span class="ml-2 text-sm">Dashboard</span>
+			</a>
+		</div>
+		<div>
+			<a
+				routerLink="/home"
+				class="
+					flex
+					items-center
+					p-2
+					text-black-900
+					transition-colors
+					rounded-md
+					dark:text-white-900
+					hover:bg-purple-100
+					dark:hover:bg-purple-500
+				"
+			>
+				<mat-icon fontIcon="fa-car" fontSet="fal"></mat-icon>
+				<span class="ml-2 text-sm">Cars</span>
+			</a>
+		</div>
+		<div>
+			<a
+				routerLink="/home"
+				class="
+					flex
+					items-center
+					p-2
+					text-black-900
+					transition-colors
+					rounded-md
+					dark:text-white-900
+					hover:bg-purple-100
+					dark:hover:bg-purple-500
+				"
+			>
+				<mat-icon fontIcon="fa-users" fontSet="fal"></mat-icon>
+				<span class="ml-2 text-sm">Drivers</span>
+			</a>
+		</div>
+	</nav>
+
+	<div class="mobile-user flex items-center">
+		<button mat-icon-button>
+			<mat-icon fontIcon="fa-user" fontSet="fal"></mat-icon>
+		</button>
 	</div>
 </div>
