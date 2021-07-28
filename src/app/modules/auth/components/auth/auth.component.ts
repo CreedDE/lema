@@ -47,9 +47,7 @@ export class AuthComponent implements OnInit {
 				.then(() => {
 					this.isSubmitting = false;
 				})
-				.catch((error) => {
-					console.log(`=========Error=========`);
-					console.log(error);
+				.catch(() => {
 					this.isSubmitting = false;
 				});
 		} else {

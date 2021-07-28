@@ -44,7 +44,7 @@ export class AlertComponent implements OnInit, OnDestroy {
 			}
 
 			if (alert.autoClose) {
-				setTimeout(() => this.removeAlert(alert), 3000);
+				setTimeout(() => this.removeAlert(alert), 4500);
 			}
 		});
 	}
