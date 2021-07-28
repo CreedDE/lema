@@ -44,19 +44,19 @@ export class FirebaseAuthService {
 					//TODO: create a route that exist where you can navigate after the login
 					// void this.router.navigate(['dashboard']);
 				});
-				void this.SetUserData(result.user);
+				void this.UpdateEmailVerified(result.user);
 			})
 			.catch((signinError) => {
 				this.alertService.error(signinError.message, 'Uh, something went wrong', this.alertOptions);
 			});
 	}
 
-	SignUp(email: string, password: string): Promise<void> {
+	SignUp(email: string, password: string, username: string): Promise<void> {
 		return this.afAuth
 			.createUserWithEmailAndPassword(email, password)
 			.then((result) => {
 				void this.SendVerificationMail();
-				void this.SetUserData(result.user);
+				void this.SetUserData(result.user, username);
 			})
 			.catch((signupError) => {
 				this.alertService.error(signupError.message, 'Uh, something went wrong', this.alertOptions);
@@ -88,7 +88,6 @@ export class FirebaseAuthService {
 		return this.afAuth
 			.sendPasswordResetEmail(resetEmail)
 			.then(() => {
-				//TODO: build shared dialog component for that case
 				this.alertService.success(
 					'We send you an Email where you can reset your Password.',
 					'Passwort reset completed',
@@ -100,12 +99,20 @@ export class FirebaseAuthService {
 			});
 	}
 
-	SetUserData(user: User): Promise<void> {
+	UpdateEmailVerified(user: User): Promise<void> {
+		const userRef: AngularFirestoreDocument<unknown> = this.afs.doc(`users/${user.uid}`);
+		const userState: User = {
+			emailVerified: user.emailVerified,
+		};
+		return userRef.set(userState, { merge: true });
+	}
+
+	SetUserData(user: User, username?: string): Promise<void> {
 		const userRef: AngularFirestoreDocument<unknown> = this.afs.doc(`users/${user.uid}`);
 		const userState: User = {
 			uid: user.uid,
 			email: user.email,
-			displayName: user.displayName,
+			displayName: username,
 			photoURL: user.photoURL,
 			emailVerified: user.emailVerified,
 		};
