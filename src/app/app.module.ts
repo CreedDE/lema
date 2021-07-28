@@ -9,6 +9,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '@env/environment';
+import { AlertModule } from './shared/components/alert/alert.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { environment } from '@env/environment';
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFireAuthModule,
 		AngularFirestoreModule,
+		AlertModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
