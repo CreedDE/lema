@@ -1,5 +1,8 @@
+const version = require('../../package.json').version;
+
 export const environment = {
 	production: true,
+	appVersion: `${version}`,
 	firebase: {
 		apiKey: 'AIzaSyCKRr3Kx2xFvU1KHAJlcXxReyczjf38EmY',
 		authDomain: 'lema-31428.firebaseapp.com',

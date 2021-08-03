@@ -2,8 +2,11 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const version = require('../../package.json').version;
+
 export const environment = {
 	production: false,
+	appVersion: `${version}-dev`,
 	firebase: {
 		apiKey: 'AIzaSyCKRr3Kx2xFvU1KHAJlcXxReyczjf38EmY',
 		authDomain: 'lema-31428.firebaseapp.com',
