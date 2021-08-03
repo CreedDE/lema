@@ -56,6 +56,25 @@
 					<span class="ml-2 text-sm">Dashboard</span>
 				</a>
 			</div>
+			<div>
+				<a
+					routerLink="leagues"
+					class="
+						flex
+						items-center
+						p-2
+						text-black-900
+						transition-colors
+						rounded-md
+						dark:text-white-900
+						hover:bg-purple-100
+						dark:hover:bg-purple-500
+					"
+				>
+					<mat-icon fontIcon="fa-shield" fontSet="fal"></mat-icon>
+					<span class="ml-2 text-sm">Leagues</span>
+				</a>
+			</div>
 		</nav>
 	</div>
 </div>
@@ -71,8 +90,7 @@
 		min-h-screen
 		bg-white-900
 		dark:bg-black-600
-		border-r border-white-500
-		dark:border-black-500
+		shadow-md
 		py-4
 	"
 >
@@ -102,7 +120,7 @@
 		</div>
 		<div>
 			<a
-				routerLink="/home"
+				routerLink="leagues"
 				class="
 					flex
 					items-center
@@ -115,27 +133,8 @@
 					dark:hover:bg-purple-500
 				"
 			>
-				<mat-icon fontIcon="fa-car" fontSet="fal"></mat-icon>
-				<span class="ml-2 text-sm">Cars</span>
-			</a>
-		</div>
-		<div>
-			<a
-				routerLink="/home"
-				class="
-					flex
-					items-center
-					p-2
-					text-black-900
-					transition-colors
-					rounded-md
-					dark:text-white-900
-					hover:bg-purple-100
-					dark:hover:bg-purple-500
-				"
-			>
-				<mat-icon fontIcon="fa-users" fontSet="fal"></mat-icon>
-				<span class="ml-2 text-sm">Drivers</span>
+				<mat-icon fontIcon="fa-shield" fontSet="fal"></mat-icon>
+				<span class="ml-2 text-sm">Leagues</span>
 			</a>
 		</div>
 	</nav>

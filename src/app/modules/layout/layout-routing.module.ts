@@ -6,7 +6,12 @@ const routes: Routes = [
 	{
 		path: '',
 		component: LayoutComponent,
-		children: [],
+		children: [
+			{
+				path: 'leagues',
+				loadChildren: () => import('@modules/leagues/leagues.module').then((l) => l.LeaguesModule),
+			},
+		],
 	},
 ];
 
