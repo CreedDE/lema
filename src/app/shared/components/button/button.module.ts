@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { LemaButtonComponent } from './button.component';
+import { LemaAnchorComponent, LemaButtonComponent } from './button.component';
 
 @NgModule({
 	imports: [],
 	providers: [],
-	declarations: [LemaButtonComponent],
-	exports: [LemaButtonComponent],
+	declarations: [LemaButtonComponent, LemaAnchorComponent],
+	exports: [LemaButtonComponent, LemaAnchorComponent],
 })
 export class LemaButtonModule {}
