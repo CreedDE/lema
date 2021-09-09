@@ -91,22 +91,7 @@
 						>Forgot your password?</a
 					>
 				</div>
-				<button
-					class="
-						py-2
-						px-6
-						my-6
-						bg-purple-500
-						text-white-900
-						font-semibold
-						rounded-lg
-						disabled:opacity-50 disabled:cursor-not-allowed
-					"
-					type="submit"
-					[disabled]="!authForm.valid"
-				>
-					{{buttonTitle}}
-				</button>
+				<button lema-button type="submit" [disabled]="!authForm.valid">{{buttonTitle}}</button>
 			</fieldset>
 		</form>
 		<div>
