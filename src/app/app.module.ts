@@ -10,7 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '@env/environment';
 import { AlertModule } from './shared/components/alert/alert.module';
-import { StoreModule } from '@ngrx/store';
+import { RootStoreModule } from './store/store.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -24,7 +24,7 @@ import { StoreModule } from '@ngrx/store';
 		AngularFireAuthModule,
 		AngularFirestoreModule,
 		AlertModule,
-		StoreModule.forRoot({}, {}),
+		RootStoreModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
