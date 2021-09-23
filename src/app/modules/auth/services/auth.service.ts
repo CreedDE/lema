@@ -23,18 +23,7 @@ export class FirebaseAuthService {
 		private router: Router,
 		private ngZone: NgZone,
 		private alertService: AlertService
-	) {
-		this.afAuth.authState.subscribe((user) => {
-			if (user) {
-				this.userState = user;
-				localStorage.setItem('user', JSON.stringify(this.userState));
-				JSON.parse(localStorage.getItem('user'));
-			} else {
-				localStorage.setItem('user', '');
-				JSON.parse(localStorage.getItem('user'));
-			}
-		});
-	}
+	) {}
 
 	SignIn(email: string, password: string): Promise<void> {
 		return this.afAuth
@@ -115,14 +104,14 @@ export class FirebaseAuthService {
 			displayName: username,
 			photoURL: user.photoURL,
 			emailVerified: user.emailVerified,
+			admin: false,
 		};
 		return userRef.set(userState, { merge: true });
 	}
 
 	SignOut(): Promise<void> {
 		return this.afAuth.signOut().then(() => {
-			localStorage.removeItem('user');
-			void this.router.navigate(['sign-in']);
+			void this.router.navigate(['login']);
 		});
 	}
 }
