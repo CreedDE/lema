@@ -25,12 +25,6 @@ export class FirebaseAuthService {
 		private alertService: AlertService
 	) {}
 
-	GetLoggedInUser() {
-		const users = this.afs.doc(`users/`);
-		users.subscribe((x) => {});
-		return users;
-	}
-
 	SignIn(email: string, password: string): Promise<void> {
 		return this.afAuth
 			.signInWithEmailAndPassword(email, password)

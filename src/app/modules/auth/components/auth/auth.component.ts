@@ -41,6 +41,13 @@ export class AuthComponent implements OnInit {
 		});
 	}
 
+	testFunction(): void {
+		const uid = 'B8zexTNnf8UwBvkIa6L3zci6Ot83';
+		this.authService.GetLoggedInUser().subscribe((x) => {
+			console.log(x);
+		});
+	}
+
 	submitForm(): void {
 		this.isSubmitting = true;
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
